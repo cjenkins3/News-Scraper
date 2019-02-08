@@ -6,8 +6,8 @@ const axios = require("axios");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
 
-let PORT = process.env.PORT || 3000;
-let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var PORT = process.env.PORT || 3000;
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 // initialize express
 const app = express();
