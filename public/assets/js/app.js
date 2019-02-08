@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    // declare functions
+    
     const scrapeArticles = ()=>{
         $.get("/scrape")
         .then((data)=>{

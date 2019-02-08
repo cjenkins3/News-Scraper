@@ -62,7 +62,7 @@ module.exports = (app)=>{
                     console.log(`\narticle scraped: ${dbArticle}`);
                 })
                 .catch((err)=>{
-                    console.log(`\nerror while saving to database: ${err}`);
+                    console.log(`\error while saving to database: ${err}`);
                 });
             });
 

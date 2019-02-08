@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // Create schema
-const articleSchema = new Schema({
+const ArticleSchema = new Schema({
     title: {
         type: String,
         required: true,
@@ -29,12 +29,12 @@ const articleSchema = new Schema({
     note: [
         {
             type: Schema.Types.ObjectId,
-            ref: "Note"
+            ref: 'Note'
         }
     ]
 });
 
 // Create model from schema
-const article = mongoose.model("article", articleSchema);
+const Article = mongoose.model('Article', ArticleSchema);
 
-module.exports = article;
+module.exports = Article
