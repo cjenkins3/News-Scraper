@@ -1,0 +1,31 @@
+.navbar {
+    background-color: #bbbbbb;
+    font-family: 'Bree Serif', serif;
+}
+.jumbotron {
+    background: url(../img/breakingnews.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover; 
+    -moz-background-size: cover; 
+    -o-background-size: cover; 
+    background-size: cover;
+    color: white;
+    font-family: 'Bree Serif', serif;
+}
+.note-content {
+    width: 100%;
+    height: 100px;
+    overflow-y: scroll;
+    resize: none;
+    font-family: 'Bree Serif', serif;
+}
+.material-icons {
+    color: rgb(54, 54, 161);
+}
+.display-3 {
+    color: black;
+    font-family: 'Bree Serif', serif;
+}
+.lead {
+    color: black;
+    font-family: 'Bree Serif', serif;
+}
