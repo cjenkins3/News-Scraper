@@ -1,13 +1,9 @@
 var express = require("express");
 var handlebars = require("express-handlebars");
 var mongoose = require("mongoose");
-var axios = require("axios");
 var logger = require("morgan");
 var bodyParser = require("body-parser");
 
-//scraping tools
-var request = require("request");
-var cheerio = require("cheerio");
 
 // require all models
 var db = require("./models");
