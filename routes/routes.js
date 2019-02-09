@@ -3,7 +3,7 @@ var axios = require("axios");
 var cheerio = require("cheerio");
 var db = require("../models");
 
-var request = require("request");
+
 
 module.exports = (app)=>{
     // main page
@@ -43,7 +43,7 @@ module.exports = (app)=>{
     // scrape data then save to mongodb
     app.get("/scrape", (req, res)=>{
         // get body of url
-        request("https://www.cnn.com/specials/last-50-stories")
+        axios.get("https://www.cnn.com/specials/last-50-stories")
         .then((response)=>{
             // use cheerio for shorthand selector $
             var $ = cheerio.load(response.data);
@@ -92,7 +92,7 @@ module.exports = (app)=>{
     });
 
     // save article
-    app.put("/article/:id", (req, res)=>{
+    app.put("/articles/:id", (req, res)=>{
         let id = req.params.id;
 
         db.Article.findByIdAndUpdate(id, {$set: {saved: true}})
@@ -105,7 +105,7 @@ module.exports = (app)=>{
     });
 
     // remove article from page "saved"
-    app.put("/article/remove/:id", (req, res)=>{
+    app.put("/articles/remove/:id", (req, res)=>{
         let id = req.params.id;
 
         db.Article.findByIdAndUpdate(id, {$set: {saved: false}})
@@ -118,7 +118,7 @@ module.exports = (app)=>{
     });
 
     // get current notes
-    app.get("/article/:id", (req,res)=>{
+    app.get("/articles/:id", (req,res)=>{
         let id = req.params.id;
 
         // cannot get notes associated with article, only the very first one
