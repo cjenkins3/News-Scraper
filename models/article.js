@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 // Create schema
 const ArticleSchema = new Schema({
-    title: {
+    headline: {
         type: String,
         required: true,
         unique: true

@@ -46,20 +46,20 @@ module.exports = (app)=>{
             // use cheerio for shorthand selector $
             let $ = cheerio.load(response.data);
             
-            $(".lakeside__content").each(function(i, element) {
+            $(".cd__headline-text").each(function(i, element) {
                 let result = {};
-                const title = $(this).children("h3").children("a").children("span").text();
+                const headline = $(this).children("h3").children("a").children("span").text();
                 const link = $(this).children("h3").children("a").attr("href");
                 const summary = $(this).children("p").text();
 
-                result.title = title;
+                result.headline = headline;
                 result.link = link;
                 result.summary = summary;
                
                 // create new Article
                 db.Article.create(result)
                 .then((dbArticle)=>{
-                    console.log(`\narticle scraped: ${dbArticle}`);
+                    console.log(`\article scraped: ${dbArticle}`);
                 })
                 .catch((err)=>{
                     console.log(`\error while saving to database: ${err}`);

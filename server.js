@@ -1,15 +1,22 @@
-const express = require("express");
-const handlebars = require("express-handlebars");
-const mongoose = require("mongoose");
-const axios = require("axios");
-const logger = require("morgan");
-const bodyParser = require("body-parser");
+var express = require("express");
+var handlebars = require("express-handlebars");
+var mongoose = require("mongoose");
+var axios = require("axios");
+var logger = require("morgan");
+var bodyParser = require("body-parser");
+
+//scraping tools
+var request = require("request");
+var cheerio = require("cheerio");
+
+// require all models
+var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://admin:Gobears09@ds127015.mlab.com:27015/heroku_hgpgsf30";
 
 // initialize express
-const app = express();
+var app = express();
 
 // use morgan logger for logging requests
 app.use(logger("dev"));
@@ -26,7 +33,7 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 
 // check connection status
-let db = mongoose.connection;
+var db = mongoose.connection;
 db.on("error", (error)=>{
     console.log(`Connection error ${error}`);
 });
