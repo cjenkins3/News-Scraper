@@ -48,12 +48,13 @@ module.exports = (app)=>{
             // use cheerio for shorthand selector $
             var $ = cheerio.load(response.data);
             
-            $(".cd__headline-text").each(function(i, element) {
-                console.log(".cd__headline-text");
+            $(`li`).each(function(i, element) {
+                // console.log(".cd__headline-text");
                 let result = {};
-                var headline = $(this).children("h3").children("a").children("span").text();
-                var link = $(this).children("h3").children("a").attr("href");
-                var summary = $(this).children("p").text();
+                var headline = $(this).find(".cd__headline-text").text();
+                var link = $(this).find("a").attr("href");
+                var summary = $(this).find(".zn-body__paragraph.speakable").text();
+                console.log(headline, link, summary);
 
                 result.headline = headline;
                 result.link = link;
@@ -74,7 +75,7 @@ module.exports = (app)=>{
         .catch((error)=>{
             console.log(`error while getting data from url: ${error}`);
         });
-    });
+    })
 
     // show articles after scraping
     app.get("/articles", (req, res)=>{

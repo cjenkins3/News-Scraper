@@ -11,7 +11,7 @@ $(document).ready(function() {
         let id = $(this).data("id");
 
         $.ajax({
-            url: `/article/${id}`,
+            url: `/articles/${id}`,
             method: "PUT"
         })
         .then((data)=>{
@@ -23,7 +23,7 @@ $(document).ready(function() {
         let id = $(this).data("id");
         
         $.ajax({
-            url: `/article/remove/${id}`,
+            url: `/articles/remove/${id}`,
             method: "PUT"
         })
         .then((data)=>{
@@ -36,7 +36,7 @@ $(document).ready(function() {
 
         // send request to get article"s notes if exist
         $.ajax({
-            url: `/article/${articleId}`,
+            url: `/articles/${articleId}`,
             method: "GET"
         })
         .then((data)=>{
