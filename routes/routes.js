@@ -3,7 +3,7 @@ var axios = require("axios");
 var cheerio = require("cheerio");
 var db = require("../models");
 
-var req = require("request");
+var request = require("request");
 
 module.exports = (app)=>{
     // main page
@@ -43,12 +43,13 @@ module.exports = (app)=>{
     // scrape data then save to mongodb
     app.get("/scrape", (req, res)=>{
         // get body of url
-        axios.get("https://www.cnn.com/specials/last-50-stories")
+        request("https://www.cnn.com/specials/last-50-stories")
         .then((response)=>{
             // use cheerio for shorthand selector $
-            let $ = cheerio.load(response.data);
+            var $ = cheerio.load(response.data);
             
             $(".cd__headline-text").each(function(i, element) {
+                console.log(".cd__headline-text");
                 let result = {};
                 var headline = $(this).children("h3").children("a").children("span").text();
                 var link = $(this).children("h3").children("a").attr("href");

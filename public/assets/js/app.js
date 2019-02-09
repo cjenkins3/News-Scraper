@@ -1,13 +1,13 @@
 $(document).ready(function() {
     
-    const scrapeArticles = ()=>{
+    var scrapeArticles = ()=>{
         $.get("/scrape")
         .then((data)=>{
             $("body").html(data);
         });
     };
 
-    const saveArticle = function() {
+    var saveArticle = function() {
         let id = $(this).data("id");
 
         $.ajax({
@@ -19,7 +19,7 @@ $(document).ready(function() {
         });
     };
 
-    const removeArticle = function() {
+    var removeArticle = function() {
         let id = $(this).data("id");
         
         $.ajax({
@@ -31,7 +31,7 @@ $(document).ready(function() {
         });
     };
 
-    const viewNotes = function() {
+    var viewNotes = function() {
         let articleId = $(this).data("id");
 
         // send request to get article"s notes if exist
@@ -43,7 +43,7 @@ $(document).ready(function() {
             // create modal with article id
             $(".modal-content").html(`
                 <div class="modal-header">
-                    <h5 class="modal-title">${data.title}</h5>
+                    <h5 class="modal-title">${data.headline}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -83,7 +83,7 @@ $(document).ready(function() {
         });
     };
 
-    const saveNote = function() {
+    var saveNote = function() {
         let id = $(this).data("id");
         let content = $(".note-content").val().trim();
 
@@ -106,7 +106,7 @@ $(document).ready(function() {
         }
     };
 
-    const deleteNote = function() {
+    var deleteNote = function() {
         let id = $(this).data("id");
 
         $.ajax({
@@ -125,7 +125,7 @@ $(document).ready(function() {
     }
 
     // keep scrollbar bottom
-    const contentBox = $(".note-content");
+    var contentBox = $(".note-content");
     contentBox.scrollTop = contentBox.scrollHeight;
 
     // click events
