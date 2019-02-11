@@ -9,7 +9,7 @@ var bodyParser = require("body-parser");
 var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://admin:Gobears09@ds127015.mlab.com:27015/heroku_hgpgsf30";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 // initialize express
 var app = express();
