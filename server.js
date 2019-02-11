@@ -9,7 +9,7 @@ var bodyParser = require("body-parser");
 var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://admin:Gobears09@ds127015.mlab.com:27015/heroku_hgpgsf30";
 
 // initialize express
 var app = express();
@@ -26,7 +26,7 @@ app.set("view engine", "handlebars");
 
 // database configuration
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
+mongoose.connect(MONGODB_URI, {useCreateIndex: true, useNewUrlParser: true});
 
 // check connection status
 var db = mongoose.connection;
