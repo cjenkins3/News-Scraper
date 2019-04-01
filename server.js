@@ -9,7 +9,7 @@ var bodyParser = require("body-parser");
 var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://admin:Gobears09@ds127015.mlab.com:27015/heroku_hgpgsf30";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://admin:Gobears09@ds211635.mlab.com:11635/heroku_snq43xfv";
 
 // initialize express
 var app = express();
@@ -26,7 +26,9 @@ app.set("view engine", "handlebars");
 
 // database configuration
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
+mongoose.set("useCreateIndex", true);
+mongoose.set("findOneAndReplace", true);
 
 // check connection status
 var db = mongoose.connection;
