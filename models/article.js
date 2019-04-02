@@ -37,4 +37,4 @@ var ArticleSchema = new Schema({
 // Create model from schema
 var Article = mongoose.model("Article", ArticleSchema);
 
-module.exports = Article
+module.exports = Article;
