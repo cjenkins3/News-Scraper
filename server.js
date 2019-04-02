@@ -38,7 +38,7 @@ db.on("error", (error)=>{
 
 require("./routes/routes.js")(app);
 
-// start server
+// starts server
 app.listen(PORT, ()=>{
     console.log(`App running on port http://localhost:${PORT}`);
 });
