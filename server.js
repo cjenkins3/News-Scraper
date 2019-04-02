@@ -8,7 +8,7 @@ var bodyParser = require("body-parser");
 // require all models
 var db = require("./models");
 
-var PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://admin:Gobears09@ds211635.mlab.com:11635/heroku_snq43xfv";
 
 // initialize express
